@@ -8,7 +8,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 
     Route::get('/register', function () {
-        return view('auth.login');
+        return view('auth.register');
     })->name('register');
 });
 
