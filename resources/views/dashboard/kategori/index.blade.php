@@ -11,7 +11,7 @@
 
 @section('content')
     @if ($isAdmin)
-        <a href="{{ route('kategori.index') }}" class="btn btn-info mb-3">Tambah Kategori</a>
+        <a href="{{ route('kategori.create') }}" class="btn btn-info mb-3">Tambah Kategori</a>
     @endif
 
     <div class="col-lg-auto">
@@ -40,7 +40,7 @@
 
                                     @if ($isAdmin)
                                         <button class="btn btn-warning">
-                                            <a href="{{ route('kategori.index', $item->id) }}"
+                                            <a href="{{ route('kategori.edit', $item->id) }}"
                                                 style="text-decoration: none;color:white">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>

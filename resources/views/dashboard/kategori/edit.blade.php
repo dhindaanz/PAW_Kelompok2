@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="card px-4 pt-3 pb-5">
-        <form action="{{ route('kategori.show', $kategori->id) }}" method="POST">
+        <form action="{{ route('kategori.update', $kategori->id) }}" method="POST">
             @csrf
             @method('PUT')
 
