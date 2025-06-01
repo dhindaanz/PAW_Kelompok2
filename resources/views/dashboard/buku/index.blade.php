@@ -26,7 +26,12 @@
             @forelse ($buku as $item)
                 <div class="col-auto my-2" style="width:18rem;">
                     <div class="card mx-2 my-2" style="min-height:28rem;">
-                        <img class="card-img-top" style="height:200px;" src="{{ asset('img/no-image.jpg') }}" />
+                        @if ($item->gambar != null)
+                            <img class="card-img-top" style="height:200px;" src="{{ asset($item->gambar) }}">
+                        @else
+                            <img class="card-img-top" style="height:200px;" src="{{ asset('img/no-image.jpg') }}">
+                        @endif
+
                         <div class="card-body d-flex flex-column justify-content-between">
                             <div class="detai-buku">
                                 <h5 class="card-title text-primary"><a

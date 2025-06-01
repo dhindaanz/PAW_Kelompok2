@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Buku;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BukuController extends Controller
 {
@@ -46,7 +47,29 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'kode_buku' => 'required|string|max:20|unique:bukus,kode_buku',
+            'judul' => 'required|string|max:255',
+            'pengarang' => 'required|string|max:255',
+            'penerbit' => 'required|string|max:255',
+            'tahun_terbit' => 'required|integer|min:1900|max:' . date('Y'),
+            'deskripsi' => 'nullable|string',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'kategori_id' => 'required|integer|exists:kategoris,id',
+        ]);
+
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/buku'), $filename);
+            $validatedData['gambar'] = 'uploads/buku/' . $filename;
+        }
+
+        Buku::create($validatedData);
+
+        Alert::success('Berhasil', 'Buku berhasil ditambahkan!');
+
+        return to_route('buku.index');
     }
 
     /**

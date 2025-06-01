@@ -70,7 +70,7 @@
 
                 <div class="form-group mb-3">
                     <label for="tahun_terbit"class="text-primary font-weight-bold">Tahun Terbit</label>
-                    <input type="text" name="tahun_terbit" value="{{ old('tahun_terbit') }}"class="form-control">
+                    <input type="number" name="tahun_terbit" min="1900" max="{{ date('Y') }}" value="{{ old('tahun_terbit') }}"class="form-control">
                 </div>
 
                 @error('tahun_terbit')
