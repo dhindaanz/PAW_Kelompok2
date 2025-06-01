@@ -72,7 +72,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-primary"
                                                 data-dismiss="modal">Cancel</button>
-                                            <form action="{{ route('buku.index', $item->id) }}" method="post">
+                                            <form action="{{ route('buku.destroy', $item->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
 

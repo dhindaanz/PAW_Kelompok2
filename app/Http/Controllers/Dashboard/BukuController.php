@@ -134,6 +134,16 @@ class BukuController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $buku = Buku::findOrFail($id);
+
+        if ($buku->gambar && file_exists(public_path($buku->gambar))) {
+            unlink(public_path($buku->gambar));
+        }
+
+        $buku->delete();
+
+        Alert::success('Berhasil', 'Buku berhasil dihapus!');
+
+        return to_route('buku.index');
     }
 }
