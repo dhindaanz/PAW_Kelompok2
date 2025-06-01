@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\BukuController;
 use App\Http\Controllers\Dashboard\HomeController;
+use App\Http\Controllers\Dashboard\KategoriController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -33,6 +34,8 @@ Route::middleware('auth')->group(function () {
         Route::put('/buku/{id}', [BukuController::class, 'update'])->name('buku.update');
         Route::delete('/buku/{id}', [BukuController::class, 'destroy'])->name('buku.destroy');
     });
+
+    Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
 
     Route::post('/logout', LogoutController::class)->name('logout');
 });
