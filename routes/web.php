@@ -20,6 +20,8 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/', HomeController::class)->name('dashboard');
 
+    Route::post('/logout', LogoutController::class)->name('logout');
+
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
@@ -27,15 +29,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
     Route::get('/buku/{id}', [BukuController::class, 'show'])->name('buku.show');
 
+    Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
+
     Route::middleware('is_admin')->group(function () {
         Route::get('/buku/create', [BukuController::class, 'create'])->name('buku.create');
         Route::post('/buku', [BukuController::class, 'store'])->name('buku.store');
         Route::get('/buku/{id}/edit', [BukuController::class, 'edit'])->name('buku.edit');
         Route::put('/buku/{id}', [BukuController::class, 'update'])->name('buku.update');
         Route::delete('/buku/{id}', [BukuController::class, 'destroy'])->name('buku.destroy');
+
+        Route::get('/kategori/create', [KategoriController::class, 'create'])->name('kategori.create');
     });
-
-    Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
-
-    Route::post('/logout', LogoutController::class)->name('logout');
 });
