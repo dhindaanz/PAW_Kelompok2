@@ -35,18 +35,18 @@
                         <div class="card-body d-flex flex-column justify-content-between">
                             <div class="detai-buku">
                                 <h5 class="card-title text-primary"><a
-                                        href="{{ route('buku.index', $item->id) }}"style="text-decoration: none; font-size:1rem;font-weight:bold;">
+                                        href="{{ route('buku.show', $item->id) }}"style="text-decoration: none; font-size:1rem;font-weight:bold;">
                                         {{ $item->judul }}</a></h5>
                                 <p class = "cart-text m-0">Kode Buku : {{ $item->kode_buku }}</p>
                                 <p class="card-text m-0">Pengarang : {{ $item->pengarang }}</p>
                                 <p class="card-text m-0">Kategori : {{ $item->kategori?->nama }}</p>
                             </div>
                             <div class="button-area">
-                                <button class="btn-sm btn-info px-2"><a href="{{ route('buku.index', $item->id) }}"
+                                <button class="btn-sm btn-info px-2"><a href="{{ route('buku.show', $item->id) }}"
                                         style="text-decoration: none; color:white;">Detail</a></button>
 
                                 @if ($isAdmin)
-                                    <button class="btn-sm btn-warning px-2"><a href="{{ route('buku.index', $item->id) }}/edit"
+                                    <button class="btn-sm btn-warning px-2"><a href="{{ route('buku.index', $item->id) }}"
                                             style="text-decoration: none;color:white">Edit</a></button>
                                     <button class="btn-sm btn-danger px-3"><a data-toggle="modal"
                                             data-target="#DeleteModal{{ $item->id }}">Delete</a></button>

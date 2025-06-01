@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
     Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
+    Route::get('/buku/{id}', [BukuController::class, 'show'])->name('buku.show');
 
     Route::middleware('is_admin')->group(function () {
         Route::get('/buku/create', [BukuController::class, 'create'])->name('buku.create');

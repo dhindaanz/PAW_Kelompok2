@@ -77,7 +77,9 @@ class BukuController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $buku = Buku::with('kategori')->findOrFail($id);
+
+        return view('dashboard.buku.show', compact('buku'));
     }
 
     /**
