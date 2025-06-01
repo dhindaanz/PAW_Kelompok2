@@ -87,7 +87,10 @@ class BukuController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $buku = Buku::with('kategori')->findOrFail($id);
+        $kategori = Kategori::all();
+
+        return view('dashboard.buku.edit', compact('buku', 'kategori'));
     }
 
     /**

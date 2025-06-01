@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('judul')
-    <h1 class="text-primary">Tambah Buku</h1>
+    <h1 class="text-primary">Edit Buku</h1>
 @endsection
 
 @push('styles')
@@ -14,12 +14,13 @@
             <h6 class="m-0 font-weight-bold text-primary">Form Tambah Buku</h6>
         </div>
         <div class="card-body">
-            <form action="{{ route('buku.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('buku.store', $buku->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
 
                 <div class="form-group mb-3">
                     <label for="Judul"class="text-primary font-weight-bold"> Judul Buku</label>
-                    <input type="text" name="judul" class="form-control" value="{{ old('judul') }}">
+                    <input type="text" name="judul" class="form-control" value="{{ old('judul', $buku->judul) }}">
                 </div>
 
                 @error('judul')
@@ -28,7 +29,7 @@
 
                 <div class="form-group mb-3">
                     <label for="kode_buku"class="text-primary font-weight-bold"> Kode Buku</label>
-                    <input type="text" name="kode_buku" class="form-control" value="{{ old('kode_buku') }}">
+                    <input type="text" name="kode_buku" class="form-control" value="{{ old('kode_buku', $buku->kode_buku) }}">
                 </div>
 
                 @error('kode_buku')
@@ -39,7 +40,7 @@
                     <label for="kategori_id" class="text-primary font-weight-bold">Kategori</label>
                     <select class="form-control" name="kategori_id" id="multiselect" multiple="multiple">
                         @forelse ($kategori as $item)
-                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                            <option value="{{ $item->id }}" {{ $buku->kategori_id == $item->id ? 'selected' : '' }}>{{ $item->nama }}</option>
                         @empty
                             Tidak ada kategori
                         @endforelse
@@ -52,7 +53,7 @@
 
                 <div class="form-group mb-3">
                     <label for="pengarang" class="text-primary font-weight-bold">Pengarang</label>
-                    <input type="text" name="pengarang" class="form-control" value="{{ old('pengarang') }}">
+                    <input type="text" name="pengarang" class="form-control" value="{{ old('pengarang', $buku->pengarang) }}">
                 </div>
 
                 @error('pengarang')
@@ -61,7 +62,7 @@
 
                 <div class="form-group mb-3">
                     <label for="penerbit" class="text-primary font-weight-bold">Penerbit</label>
-                    <input type="text" name="penerbit" class="form-control" value="{{ old('penerbit') }}">
+                    <input type="text" name="penerbit" class="form-control" value="{{ old('penerbit', $buku->penerbit) }}">
                 </div>
 
                 @error('penerbit')
@@ -70,7 +71,7 @@
 
                 <div class="form-group mb-3">
                     <label for="tahun_terbit"class="text-primary font-weight-bold">Tahun Terbit</label>
-                    <input type="number" name="tahun_terbit" min="1900" max="{{ date('Y') }}" value="{{ old('tahun_terbit') }}"class="form-control">
+                    <input type="number" name="tahun_terbit" min="1900" max="{{ date('Y') }}" value="{{ old('tahun_terbit', $buku->tahun_terbit) }}"class="form-control">
                 </div>
 
                 @error('tahun_terbit')
@@ -79,7 +80,7 @@
 
                 <div class="form-group mb-3">
                     <label for="deskripsi"class="text-primary font-weight-bold">Deskripsi</label>
-                    <textarea class="form-control" name="deskripsi" rows="2">{{ old('deskripsi') }}</textarea>
+                    <textarea class="form-control" name="deskripsi" rows="2">{{ old('deskripsi', $buku->deskripsi) }}</textarea>
                 </div>
 
                 @error('deskripsi')

@@ -46,7 +46,7 @@
                                         style="text-decoration: none; color:white;">Detail</a></button>
 
                                 @if ($isAdmin)
-                                    <button class="btn-sm btn-warning px-2"><a href="{{ route('buku.index', $item->id) }}"
+                                    <button class="btn-sm btn-warning px-2"><a href="{{ route('buku.edit', $item->id) }}"
                                             style="text-decoration: none;color:white">Edit</a></button>
                                     <button class="btn-sm btn-danger px-3"><a data-toggle="modal"
                                             data-target="#DeleteModal{{ $item->id }}">Delete</a></button>
@@ -74,7 +74,8 @@
                                                 data-dismiss="modal">Cancel</button>
                                             <form action="{{ route('buku.index', $item->id) }}" method="post">
                                                 @csrf
-                                                @method('delete')
+                                                @method('DELETE')
+
                                                 <button class="btn btn-outline-danger px-4" type="submit"
                                                     value="delete">Delete</button>
                                             </form>

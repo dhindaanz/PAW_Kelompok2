@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::middleware('is_admin')->group(function () {
         Route::get('/buku/create', [BukuController::class, 'create'])->name('buku.create');
         Route::post('/buku', [BukuController::class, 'store'])->name('buku.store');
+        Route::get('/buku/{id}/edit', [BukuController::class, 'edit'])->name('buku.edit');
     });
 
     Route::post('/logout', LogoutController::class)->name('logout');
