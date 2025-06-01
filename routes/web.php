@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Dashboard\BukuController;
 use App\Http\Controllers\Dashboard\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +18,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/', HomeController::class)->name('dashboard');
 
-    Route::get('/sdfsf', function () {
-        return view('dashboard.admin');
-    })->name('dashboard.user');
+    Route::get('/buku', [BukuController::class, 'index'])->name('buku.index');
 
     Route::post('/logout', LogoutController::class)->name('logout');
 });
