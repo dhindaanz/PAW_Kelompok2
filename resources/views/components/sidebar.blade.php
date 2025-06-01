@@ -45,7 +45,7 @@
                 <a class="collapse-item" href="{{ route('kategori.index') }}">Lihat Kategori</a>
 
                 @if ($isAdmin)
-                    <a class="collapse-item" href="{{ route('kategori.index') }}">Tambah Kategori</a>
+                    <a class="collapse-item" href="{{ route('kategori.create') }}">Tambah Kategori</a>
                 @endif
             </div>
         </div>

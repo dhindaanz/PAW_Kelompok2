@@ -6,10 +6,10 @@
 
 @section('content')
     @if ($isAdmin)
-        <a href="{{ route('buku.index') }}" class="btn btn-info mb-3">Tambah Buku</a>
+        <a href="{{ route('buku.create') }}" class="btn btn-info mb-3">Tambah Buku</a>
     @endif
 
-    <form class="navbar-search mb-3" action="/buku" method="GET">
+    <form class="navbar-search mb-3" action="{{ route('buku.index') }}" method="GET">
         <div class="input-group">
             <input type="search" name="search" class="form-control bg-light border-1 small" placeholder="Cari Judul Buku"
                 aria-label="Search" aria-describedby="basic-addon2" style="border-color: #3f51b5;">
