@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Buku;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class BukuController extends Controller
@@ -35,7 +36,9 @@ class BukuController extends Controller
      */
     public function create()
     {
-        //
+        $kategori = Kategori::all();
+
+        return view('dashboard.buku.create', compact('kategori'));
     }
 
     /**

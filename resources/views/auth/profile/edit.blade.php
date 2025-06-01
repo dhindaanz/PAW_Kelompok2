@@ -58,7 +58,7 @@
             @enderror
 
             <div class="form-group mx-4 my-2">
-                <label for="foto" class="text-md text-primary font-weight-bold">Tambah Photo Profile</label>
+                <label for="foto" class="text-md text-primary font-weight-bold">Photo Profile</label>
                 <div class="custom-file">
                     <input type="file" name="foto" id="foto" value="{{ old('foto', $user->profile->foto) }}" accept="image/*">
                     <label class="custom-file-label" for="foto">Pilih Foto</label>
