@@ -18,7 +18,7 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->string('nim')->unique();
             $table->string('prodi');
-            $table->string('alamat');
+            $table->integer('angkatan');
             $table->string('no_hp');
             $table->string('foto')->nullable();
             $table->timestamps();

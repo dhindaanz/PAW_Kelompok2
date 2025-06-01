@@ -4,6 +4,19 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-7">
+
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
                 <div class="card">
                     <div class="card-header text-lg text-dark">{{ __('Register') }}</div>
 
@@ -61,11 +74,14 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="alamat" class="col-md-4 col-form-label text-md-end text-dark">Alamat</label>
+                                <label for="angkatan" class="col-md-4 col-form-label text-md-end text-dark">Angkatan</label>
 
                                 <div class="col-md-6">
-                                    <textarea name="alamat" id="" class="form-control @error('alamat') is-invalid @enderror">{{ old('alamat') }}</textarea>
-                                    @error('alamat')
+                                    <input id="angkatan" type="number" min="2000" max="{{ date('Y') + 1 }}"
+                                        step="1" class="form-control @error('angkatan') is-invalid @enderror"
+                                        name="angkatan" value="{{ old('angkatan') }}">
+
+                                    @error('angkatan')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -134,7 +150,7 @@
                                 </div>
                             </div>
                             <div class="row mb-0">
-                                <span class="col-md-8 mb-3 text-md-end text-dark">Sudah Punya Akun ? <a
+                                <span class="col-md-8 mb-3 text-md-end text-dark">Sudah Punya Akun? <a
                                         href="{{ route('login') }}" class="p-0">Login</a></span>
                             </div>
                             <div class="row mb-0">

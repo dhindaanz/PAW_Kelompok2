@@ -18,7 +18,7 @@ class UserProfile extends Model
         'user_id',
         'nim',
         'prodi',
-        'alamat',
+        'angkatan',
         'no_hp',
         'foto',
     ];

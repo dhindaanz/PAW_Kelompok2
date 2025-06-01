@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\UserProfile;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class UserProfileSeeder extends Seeder
@@ -19,7 +18,7 @@ class UserProfileSeeder extends Seeder
                 'user_id' => User::where('email', 'admin@gmail.com')->first()->id,
                 'nim' => '123456789',
                 'prodi' => 'Teknik Informatika',
-                'alamat' => 'Jl. Contoh Alamat No. 1',
+                'angkatan' => 2023,
                 'no_hp' => '08123456789',
                 'foto' => 'default.jpg',
             ]);
@@ -27,7 +26,7 @@ class UserProfileSeeder extends Seeder
                 'user_id' => User::where('email', 'user@gmail.com')->first()->id,
                 'nim' => '987654321',
                 'prodi' => 'Sistem Informasi',
-                'alamat' => 'Jl. Contoh Alamat No. 2',
+                'angkatan' => 2024,
                 'no_hp' => '08987654321',
                 'foto' => 'default.jpg',
             ]);
