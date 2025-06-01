@@ -50,7 +50,11 @@ class KategoriController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $isAdmin = auth('web')->user()->is_admin;
+        $kategori = Kategori::findOrFail($id);
+        $buku = $kategori->buku()->get();
+
+        return view('dashboard.kategori.show', compact('isAdmin', 'kategori', 'buku'));
     }
 
     /**

@@ -33,7 +33,7 @@
                                 <td>
                                     @if ($isAdmin)
                                         <button class="btn btn-info">
-                                            <a href="{{ route('kategori.index', $item->id) }}"
+                                            <a href="{{ route('kategori.show', $item->id) }}"
                                                 style="text-decoration: none; color:white;">
                                                 <i class="fa-solid fa-circle-info"></i>
                                             </a>
@@ -80,7 +80,7 @@
                                             </div>
                                         </div>
                                     @else
-                                        <a href="{{ route('kategori.index', $item->id) }}" class="btn-sm btn-info px-3 py-2"
+                                        <a href="{{ route('kategori.show', $item->id) }}" class="btn-sm btn-info px-3 py-2"
                                             style="text-decoration: none;color:white">Detail</a>
                                     @endif
                                 </td>
