@@ -24,11 +24,11 @@ class RegisterController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'nim' => 'required|string|max:10|unique:user_profiles',
+            'nim' => 'required|string|max:10|unique:user_profiles,nim',
             'prodi' => 'required|string|max:45',
             'angkatan' => 'required|integer|min:2000|max:'.(date('Y') + 1),
-            'no_hp' => 'required|string|max:45',
-            'email' => 'required|string|email|max:255|unique:users',
+            'no_hp' => 'required|string|max:15',
+            'email' => 'required|string|email|max:255|unique:users,email',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
