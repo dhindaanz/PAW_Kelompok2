@@ -14,7 +14,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Form Tambah Buku</h6>
         </div>
         <div class="card-body">
-            <form action="{{ route('buku.store', $buku->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('buku.update', $buku->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

@@ -98,7 +98,35 @@ class BukuController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $buku = Buku::findOrFail($id);
+
+        $validatedData = $request->validate([
+            'kode_buku' => 'required|string|max:20|unique:bukus,kode_buku,' . $buku->id,
+            'judul' => 'required|string|max:255',
+            'pengarang' => 'required|string|max:255',
+            'penerbit' => 'required|string|max:255',
+            'tahun_terbit' => 'required|integer|min:1900|max:' . date('Y'),
+            'deskripsi' => 'nullable|string',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'kategori_id' => 'required|integer|exists:kategoris,id',
+        ]);
+
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/buku'), $filename);
+            $validatedData['gambar'] = 'uploads/buku/' . $filename;
+
+            if ($buku->gambar && file_exists(public_path($buku->gambar))) {
+                unlink(public_path($buku->gambar));
+            }
+        }
+
+        $buku->update($validatedData);
+
+        Alert::success('Berhasil', 'Buku berhasil diperbarui!');
+
+        return to_route('buku.index');
     }
 
     /**
