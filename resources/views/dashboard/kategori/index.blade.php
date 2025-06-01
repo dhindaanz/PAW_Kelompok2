@@ -31,19 +31,21 @@
                                 <th scope="row">{{ $key + 1 }}</th>
                                 <td>{{ $item->nama }}</td>
                                 <td>
+                                    <button class="btn btn-info">
+                                        <a href="{{ route('kategori.show', $item->id) }}"
+                                            style="text-decoration: none; color:white;">
+                                            <i class="fa-solid fa-circle-info"></i>
+                                        </a>
+                                    </button>
+
                                     @if ($isAdmin)
-                                        <button class="btn btn-info">
-                                            <a href="{{ route('kategori.show', $item->id) }}"
-                                                style="text-decoration: none; color:white;">
-                                                <i class="fa-solid fa-circle-info"></i>
-                                            </a>
-                                        </button>
                                         <button class="btn btn-warning">
                                             <a href="{{ route('kategori.index', $item->id) }}"
                                                 style="text-decoration: none;color:white">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                         </button>
+
                                         <button class="btn btn-danger">
                                             <a data-toggle="modal" data-target="#DeleteModal{{ $item->id }}">
                                                 <i class="fa-solid fa-trash"></i>
@@ -79,9 +81,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @else
-                                        <a href="{{ route('kategori.show', $item->id) }}" class="btn-sm btn-info px-3 py-2"
-                                            style="text-decoration: none;color:white">Detail</a>
                                     @endif
                                 </td>
                             </tr>
