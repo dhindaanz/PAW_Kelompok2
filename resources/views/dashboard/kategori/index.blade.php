@@ -45,8 +45,7 @@
                                             </a>
                                         </button>
                                         <button class="btn btn-danger">
-                                            <a data-toggle="modal"
-                                                data-target="#DeleteModal{{ $item->id }}">
+                                            <a data-toggle="modal" data-target="#DeleteModal{{ $item->id }}">
                                                 <i class="fa-solid fa-trash"></i>
                                             </a>
                                         </button>
@@ -81,8 +80,8 @@
                                             </div>
                                         </div>
                                     @else
-                                    <a href="{{ route('kategori.index', $item->id) }}" class="btn-sm btn-info px-3 py-2"
-                                        style="text-decoration: none;color:white">Detail</a>
+                                        <a href="{{ route('kategori.index', $item->id) }}" class="btn-sm btn-info px-3 py-2"
+                                            style="text-decoration: none;color:white">Detail</a>
                                     @endif
                                 </td>
                             </tr>

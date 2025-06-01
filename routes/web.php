@@ -39,5 +39,6 @@ Route::middleware('auth')->group(function () {
         Route::delete('/buku/{id}', [BukuController::class, 'destroy'])->name('buku.destroy');
 
         Route::get('/kategori/create', [KategoriController::class, 'create'])->name('kategori.create');
+        Route::post('/kategori', [KategoriController::class, 'store'])->name('kategori.store');
     });
 });

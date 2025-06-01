@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KategoriController extends Controller
 {
@@ -32,7 +33,16 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|string|min:2|max:45|unique:kategoris,nama',
+            'deskripsi' => 'nullable|string|max:255',
+        ]);
+
+        Kategori::create($validatedData);
+
+        Alert::success('Berhasil', 'Kategori berhasil ditambahkan.');
+
+        return to_route('kategori.index');
     }
 
     /**

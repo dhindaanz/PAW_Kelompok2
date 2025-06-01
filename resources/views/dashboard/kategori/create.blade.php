@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="card px-4 pt-3 pb-5">
-        <form action="{{ route('kategori.index') }}" method="post">
+        <form action="{{ route('kategori.store') }}" method="post">
             @csrf
 
             <div class="form-group">
