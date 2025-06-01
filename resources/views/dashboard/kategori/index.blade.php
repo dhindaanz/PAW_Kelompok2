@@ -69,7 +69,7 @@
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-outline-primary"
                                                             data-dismiss="modal">Cancel</button>
-                                                        <form action="{{ route('kategori.index', $item->id) }}"
+                                                        <form action="{{ route('kategori.destroy', $item->id) }}"
                                                             method="POST" id="DeleteModal">
                                                             @csrf
                                                             @method('DELETE')

@@ -91,6 +91,12 @@ class KategoriController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $kategori = Kategori::findOrFail($id);
+
+        $kategori->delete();
+
+        Alert::success('Berhasil', 'Kategori berhasil dihapus.');
+
+        return to_route('kategori.index');
     }
 }
