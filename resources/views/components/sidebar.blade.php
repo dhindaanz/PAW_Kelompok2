@@ -28,7 +28,24 @@
                 <a class="collapse-item" href="{{ route('buku.index') }}">Lihat Semua Buku</a>
 
                 @if ($isAdmin)
-                    <a class="collapse-item" href="{{ route('buku.index') }}">Tambah Buku</a>
+                    <a class="collapse-item" href="{{ route('buku.create') }}">Tambah Buku</a>
+                @endif
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm"
+            aria-expanded="true" aria-controls="collapseForm">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Kategori</span>
+        </a>
+        <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Kategori</h6>
+                <a class="collapse-item" href="{{ route('kategori.index') }}">Lihat Kategori</a>
+
+                @if ($isAdmin)
+                    <a class="collapse-item" href="{{ route('kategori.index') }}">Tambah Kategori</a>
                 @endif
             </div>
         </div>
