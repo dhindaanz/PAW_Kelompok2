@@ -3,9 +3,12 @@
 use App\Http\Controllers\Api\BukuController;
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\KategoriController;
+use App\Http\Controllers\Api\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('api.home');
+
+Route::post('/login', LoginController::class)->name('api.login');
 
 Route::get('/buku', [BukuController::class, 'index'])->name('api.buku.index');
 Route::post('/buku', [BukuController::class, 'store'])->name('api.buku.store');

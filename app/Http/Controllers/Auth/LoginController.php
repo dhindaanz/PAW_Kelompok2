@@ -22,7 +22,7 @@ class LoginController extends Controller
     {
         $validatedData = $request->validate([
             'email' => 'required|email|exists:users,email',
-            'password' => 'required|min:8',
+            'password' => 'required|string|min:8',
         ]);
 
         if (!auth('web')->attempt($validatedData)) {
