@@ -51,7 +51,7 @@
                                     <button class="btn-sm btn-danger px-3"><a data-toggle="modal"
                                             data-target="#DeleteModal{{ $item->id }}">Delete</a></button>
                                 @else
-                                    <button class="btn-sm btn-danger px-4"><a a href="/peminjaman/create"
+                                    <button class="btn-sm btn-danger px-4"><a a href="{{ route('peminjaman.create') }}?kode_buku={{ $item->kode_buku }}"
                                             style="text-decoration: none; color:white;">Pinjam Buku</a></button>
                                 @endif
                             </div>
