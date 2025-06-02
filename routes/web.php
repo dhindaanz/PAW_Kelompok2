@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\BukuController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\KategoriController;
+use App\Http\Controllers\Dashboard\PengembalianController;
 use App\Http\Controllers\Dashboard\RiwayatPeminjamanController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/peminjaman', [RiwayatPeminjamanController::class, 'index'])->name('peminjaman.index');
     Route::get('/peminjaman/create', [RiwayatPeminjamanController::class, 'create'])->name('peminjaman.create');
     Route::post('/peminjaman', [RiwayatPeminjamanController::class, 'store'])->name('peminjaman.store');
+
+    Route::get('/pengembalian', [PengembalianController::class, 'index'])->name('pengembalian.index');
 
     Route::middleware('is_admin')->group(function () {
         Route::get('/buku/create', [BukuController::class, 'create'])->name('buku.create');

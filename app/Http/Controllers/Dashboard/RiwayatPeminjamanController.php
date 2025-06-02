@@ -80,6 +80,23 @@ class RiwayatPeminjamanController extends Controller
             return back()->withErrors(['buku_id' => 'Buku ini tidak tersedia untuk dipinjam.']);
         }
 
+        $existingPeminjaman = Peminjaman::where('user_id', $validatedData['user_id'])
+            ->where('buku_id', $validatedData['buku_id'])
+            ->whereNull('tanggal_kembali')
+            ->first();
+
+        if ($existingPeminjaman) {
+            return back()->withErrors(['buku_id' => 'Anda sudah meminjam buku ini.']);
+        }
+
+        $currentBorrowedCount = Peminjaman::where('user_id', $validatedData['user_id'])
+            ->whereNull('tanggal_kembali')
+            ->count();
+
+        if ($currentBorrowedCount >= 3) {
+            return back()->withErrors(['user_id' => 'Anda sudah mencapai batas peminjaman buku.']);
+        }
+
         try {
             DB::beginTransaction();
             $buku->is_available = false;
