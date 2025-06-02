@@ -12,7 +12,7 @@
 @section('content')
     @if ($isAdmin)
         <a href="{{ route('peminjaman.create') }}" class="btn btn-info mb-3 "><i class="fa-solid fa-plus"></i> tambah</a>
-        <a href="/cetaklaporan" class="btn btn-info mb-3 mx-2"><i class="fa-solid fa-print"></i> Cetak</a>
+        <a href="{{ route('laporan.cetak') }}" class="btn btn-info mb-3 mx-2"><i class="fa-solid fa-print"></i> Cetak</a>
     @endif
 
     <div class="col-lg-auto">

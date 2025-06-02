@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\BukuController;
+use App\Http\Controllers\Dashboard\CetakLaporanController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\KategoriController;
 use App\Http\Controllers\Dashboard\PengembalianController;
@@ -40,6 +41,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/pengembalian', [PengembalianController::class, 'index'])->name('pengembalian.index');
     Route::post('/pengembalian', [PengembalianController::class, 'store'])->name('pengembalian.store');
+
+    Route::get('/laporan/cetak', CetakLaporanController::class)->name('laporan.cetak');
 
     Route::middleware('is_admin')->group(function () {
         Route::get('/buku/create', [BukuController::class, 'create'])->name('buku.create');
