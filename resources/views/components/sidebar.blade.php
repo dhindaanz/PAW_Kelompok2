@@ -60,11 +60,8 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Peminjaman</h6>
                 <a class="collapse-item" href="{{ route('peminjaman.index') }}">Riwayat Peminjaman</a>
+                <a class="collapse-item" href="{{ route('peminjaman.create') }}">Tambahkan Peminjaman</a>
                 <a class="collapse-item" href="/pengembalian">Kembalikan Buku</a>
-
-                @if ($isAdmin)
-                    <a class="collapse-item" href="/peminjaman/create">Tambahkan Peminjaman</a>
-                @endif
             </div>
         </div>
     </li>
