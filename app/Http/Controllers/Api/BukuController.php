@@ -78,14 +78,14 @@ class BukuController extends Controller
         $buku = Buku::findOrFail($id);
 
         $validatedData = $request->validate([
-            'kode_buku' => 'required|string|max:20|unique:bukus,kode_buku,' . $buku->id,
-            'judul' => 'required|string|max:255',
-            'pengarang' => 'required|string|max:255',
-            'penerbit' => 'required|string|max:255',
-            'tahun_terbit' => 'required|integer|min:1900|max:' . date('Y'),
+            'kode_buku' => 'nullable|string|max:20|unique:bukus,kode_buku,' . $buku->id,
+            'judul' => 'nullable|string|max:255',
+            'pengarang' => 'nullable|string|max:255',
+            'penerbit' => 'nullable|string|max:255',
+            'tahun_terbit' => 'nullable|integer|min:1900|max:' . date('Y'),
             'deskripsi' => 'nullable|string',
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'kategori_id' => 'required|integer|exists:kategoris,id',
+            'kategori_id' => 'nullable|integer|exists:kategoris,id',
         ]);
 
         if ($request->hasFile('gambar')) {

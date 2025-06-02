@@ -63,7 +63,7 @@ class KategoriController extends Controller
         $kategori = Kategori::findOrFail($id);
 
         $validatedData = $request->validate([
-            'nama' => 'required|string|min:2|max:45|unique:kategoris,nama,' . $kategori->id,
+            'nama' => 'nullable|string|min:2|max:45|unique:kategoris,nama,' . $kategori->id,
             'deskripsi' => 'nullable|string|max:255',
         ]);
 
