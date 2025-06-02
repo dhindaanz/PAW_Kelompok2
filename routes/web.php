@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Dashboard\AnggotaController;
 use App\Http\Controllers\Dashboard\BukuController;
 use App\Http\Controllers\Dashboard\CetakLaporanController;
 use App\Http\Controllers\Dashboard\HomeController;
@@ -56,5 +57,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
         Route::put('/kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
         Route::delete('/kategori/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
+
+        Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota.index');
     });
 });
