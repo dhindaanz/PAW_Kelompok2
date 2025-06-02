@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\BukuController;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\KategoriController;
+use App\Http\Controllers\Dashboard\RiwayatPeminjamanController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -31,6 +32,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.index');
     Route::get('/kategori/{id}/detail', [KategoriController::class, 'show'])->name('kategori.show');
+
+    Route::get('/peminjaman', [RiwayatPeminjamanController::class, 'index'])->name('peminjaman.index');
 
     Route::middleware('is_admin')->group(function () {
         Route::get('/buku/create', [BukuController::class, 'create'])->name('buku.create');

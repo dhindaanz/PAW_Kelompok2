@@ -50,4 +50,22 @@
             </div>
         </div>
     </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeminjam"
+            aria-expanded="true" aria-controls="collapsePeminjam">
+            <i class="fa-solid fa-user-pen"></i>
+            <span>Peminjaman</span>
+        </a>
+        <div id="collapsePeminjam" class="collapse" aria-labelledby="headingPeminjam" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Peminjaman</h6>
+                <a class="collapse-item" href="{{ route('peminjaman.index') }}">Riwayat Peminjaman</a>
+                <a class="collapse-item" href="/pengembalian">Kembalikan Buku</a>
+
+                @if ($isAdmin)
+                    <a class="collapse-item" href="/peminjaman/create">Tambahkan Peminjaman</a>
+                @endif
+            </div>
+        </div>
+    </li>
 </ul>
