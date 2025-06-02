@@ -104,6 +104,16 @@ class AnggotaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        if ($user->profile && file_exists(public_path($user->profile->foto))) {
+            unlink(public_path($user->profile->foto));
+        }
+
+        $user->delete();
+
+        Alert::success('Success', 'Anggota deleted successfully!');
+
+        return to_route('anggota.index');
     }
 }

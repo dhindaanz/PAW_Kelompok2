@@ -68,7 +68,7 @@
                                                         <p>Apakah Anda yakin ingin menghapus?</p>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <form action="{{ route('anggota.index', $item->id) }}"
+                                                        <form action="{{ route('anggota.destroy', $item->id) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
