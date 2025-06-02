@@ -8,14 +8,14 @@ use Illuminate\View\Component;
 
 class Sidebar extends Component
 {
-    protected $user;
+    protected $isAdmin;
 
     /**
      * Create a new component instance.
      */
     public function __construct()
     {
-        $this->user = auth('web')->user();
+        $this->isAdmin = auth('web')->user()->is_admin;
     }
 
     /**
@@ -24,7 +24,7 @@ class Sidebar extends Component
     public function render(): View|Closure|string
     {
         return view('components.sidebar', [
-            'isAdmin' => $this->user->is_admin,
+            'isAdmin' => $this->isAdmin,
         ]);
     }
 }
