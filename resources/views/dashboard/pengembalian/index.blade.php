@@ -7,7 +7,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('peminjaman.store') }}" method="POST">
+            <form action="{{ route('pengembalian.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="nama" class="text-primary font-weight-bold">Nama Peminjam</label>

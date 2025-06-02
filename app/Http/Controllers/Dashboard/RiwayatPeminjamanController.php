@@ -112,15 +112,12 @@ class RiwayatPeminjamanController extends Controller
 
             DB::commit();
 
-            if ($peminjaman) {
-                Alert::success('Berhasil', 'Peminjaman berhasil dibuat!');
-                return redirect()->route('peminjaman.index');
-            } else {
-                Alert::error('Gagal', 'Gagal membuat peminjaman. Silakan coba lagi.');
-                return back();
-            }
+            Alert::success('Berhasil', 'Peminjaman berhasil dibuat!');
+            return redirect()->route('peminjaman.index');
         } catch (\Throwable $th) {
             DB::rollback();
+            Alert::error('Gagal', 'Gagal membuat peminjaman. Silakan coba lagi.');
+            return back();
         }
     }
 }
