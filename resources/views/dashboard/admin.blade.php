@@ -52,7 +52,7 @@
                         <div class="col mr-2">
                             <div class="text-sm text-light font-weight-bold text-uppercase mb-1">Anggota</div>
                             <div class="h5 mb-0 mr-3 font-weight-bold text-light">{{ $user }}</div>
-                            <div class="button mt-2"><a href="/anggota" class="text-light">Lihat</a></div>
+                            <div class="button mt-2"><a href="{{ route('anggota.index') }}" class="text-light">Lihat</a></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-users fa-3x text-light"></i>

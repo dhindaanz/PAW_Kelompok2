@@ -5,17 +5,22 @@
         </div>
         <div class="sidebar-brand-text mx-3">Perpustakaan TUP</div>
     </a>
+
     <hr class="sidebar-divider my-0">
+
     <li class="nav-item">
         <a class="nav-link" href="{{ route('dashboard') }}">
             <i class="fa-solid fa-house"></i>
             <span>Home</span>
         </a>
     </li>
+
     <hr class="sidebar-divider">
+
     <div class="sidebar-heading">
         Features
     </div>
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
             aria-expanded="true" aria-controls="collapseBootstrap">
@@ -33,6 +38,24 @@
             </div>
         </div>
     </li>
+
+    @if ($isAdmin)
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAnggota"
+                aria-expanded="true" aria-controls="collapseAnggota">
+                <i class="fa-solid fa-users"></i>
+                <span>Anggota</span>
+            </a>
+            <div id="collapseAnggota" class="collapse" aria-labelledby="headingBootstrap"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Anggota</h6>
+                    <a class="collapse-item" href="{{ route('anggota.index') }}">Lihat Anggota</a>
+                </div>
+            </div>
+        </li>
+    @endif
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm"
             aria-expanded="true" aria-controls="collapseForm">
@@ -50,6 +73,7 @@
             </div>
         </div>
     </li>
+
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeminjam"
             aria-expanded="true" aria-controls="collapsePeminjam">
@@ -61,7 +85,7 @@
                 <h6 class="collapse-header">Peminjaman</h6>
                 <a class="collapse-item" href="{{ route('peminjaman.index') }}">Riwayat Peminjaman</a>
                 <a class="collapse-item" href="{{ route('peminjaman.create') }}">Tambahkan Peminjaman</a>
-                <a class="collapse-item" href="/pengembalian">Kembalikan Buku</a>
+                <a class="collapse-item" href="{{ route('pengembalian.index') }}">Kembalikan Buku</a>
             </div>
         </div>
     </li>
