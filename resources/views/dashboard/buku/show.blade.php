@@ -41,6 +41,11 @@
                 </div>
 
                 <div class="form-group mb-3">
+                    <label for="status" class="text-lg text-primary font-weight-bold">Kode Buku</label>
+                    <h4>{{ $buku->is_available ? 'Tersedia' : 'Belum Tersedia' }}</h4>
+                </div>
+
+                <div class="form-group mb-3">
                     <label for="deskripsi" class="text-lg text-primary font-weight-bold">Deskripsi</label>
                     <h4>{{ $buku->deskripsi }}</h4>
                 </div>

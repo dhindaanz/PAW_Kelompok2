@@ -40,6 +40,7 @@
                                 <p class = "cart-text m-0">Kode Buku : {{ $item->kode_buku }}</p>
                                 <p class="card-text m-0">Pengarang : {{ $item->pengarang }}</p>
                                 <p class="card-text m-0">Kategori : {{ $item->kategori?->nama }}</p>
+                                <p class="card-text m-0">Status: {{ $item->is_available ? 'Tersedia' : 'Belum Tersedia' }}</p>
                             </div>
                             <div class="button-area">
                                 <button class="btn-sm btn-info px-2"><a href="{{ route('buku.show', $item->id) }}"
@@ -51,8 +52,11 @@
                                     <button class="btn-sm btn-danger px-3"><a data-toggle="modal"
                                             data-target="#DeleteModal{{ $item->id }}">Delete</a></button>
                                 @else
-                                    <button class="btn-sm btn-danger px-4"><a a href="/peminjaman/create"
-                                            style="text-decoration: none; color:white;">Pinjam Buku</a></button>
+                                    @if ($item->is_available)
+                                        <button class="btn-sm btn-success px-4"><a href="/peminjaman/create/{{ $item->id }}"
+                                                style="text-decoration: none; color:white;">Pinjam Buku</a></button>
+
+                                    @endif
                                 @endif
                             </div>
 

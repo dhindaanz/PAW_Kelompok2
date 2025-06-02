@@ -23,6 +23,7 @@ class BukuSeeder extends Seeder
                 'deskripsi' => 'Buku ini adalah novel romantis yang mengisahkan perjalanan cinta dua insan.',
                 'gambar' => null,
                 'kategori_id' => Kategori::where('nama', 'Fiksi')->first()->id,
+                'is_available' => true,
             ]);
             Buku::create([
                 'kode_buku' => 'B002',
@@ -33,6 +34,7 @@ class BukuSeeder extends Seeder
                 'deskripsi' => 'Buku ini membahas dasar-dasar pemrograman PHP untuk pemula.',
                 'gambar' => null,
                 'kategori_id' => Kategori::where('nama', 'Non-Fiksi')->first()->id,
+                'is_available' => true,
             ]);
             Buku::create([
                 'kode_buku' => 'B003',
@@ -43,6 +45,7 @@ class BukuSeeder extends Seeder
                 'deskripsi' => 'Buku ini membahas sejarah dunia dari zaman prasejarah hingga modern.',
                 'gambar' => null,
                 'kategori_id' => Kategori::where('nama', 'Biografi')->first()->id,
+                'is_available' => true,
             ]);
         }
     }

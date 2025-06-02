@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreignId('kategori_id')
                 ->constrained('kategoris')
                 ->onDelete('cascade');
+            $table->boolean('is_available')->default(true);
             $table->timestamps();
         });
     }
