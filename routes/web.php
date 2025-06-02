@@ -59,5 +59,6 @@ Route::middleware('auth')->group(function () {
         Route::delete('/kategori/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
 
         Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota.index');
+        Route::get('/anggota/{id}/detail', [AnggotaController::class, 'show'])->name('anggota.show');
     });
 });

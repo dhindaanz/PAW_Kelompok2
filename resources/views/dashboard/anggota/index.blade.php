@@ -10,8 +10,6 @@
 @endpush
 
 @section('content')
-    <a href="{{ route('anggota.index') }}" class="btn btn-info mb-3 "><i class="fa-solid fa-plus"></i> tambah</a>
-
     <div class="col-lg-auto">
         <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"></div>
@@ -35,7 +33,7 @@
                                 <td>{{ $item->email }}</td>
                                 <td>
                                     <button class="btn btn-info">
-                                        <a href="{{ route('anggota.index', $item->id) }}"
+                                        <a href="{{ route('anggota.show', $item->id) }}"
                                             style="text-decoration: none; color:white;">
                                             <i class="fa-solid fa-circle-info"></i>
                                         </a>

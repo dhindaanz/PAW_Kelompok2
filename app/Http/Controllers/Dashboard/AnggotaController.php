@@ -20,27 +20,14 @@ class AnggotaController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        $anggota = User::with('profile', 'peminjaman', 'peminjaman.buku:id,judul,kode_buku')->findOrFail($id);
+        $peminjaman = $anggota->peminjaman()->with('buku')->get();
+
+        return view('dashboard.anggota.show', compact('anggota', 'peminjaman'));
     }
 
     /**
