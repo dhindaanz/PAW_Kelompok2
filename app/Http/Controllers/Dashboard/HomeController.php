@@ -32,7 +32,7 @@ class HomeController extends Controller
         }
 
         $user = User::where('is_admin', false)->count();
-        $peminjaman = Peminjaman::with(['user', 'buku'])->orderBy('updated_at', 'desc')->get();
+        $peminjaman = Peminjaman::orderBy('updated_at', 'desc')->get();
         $jumlahPeminjaman = $peminjaman->count();
 
         return view('dashboard.admin', [

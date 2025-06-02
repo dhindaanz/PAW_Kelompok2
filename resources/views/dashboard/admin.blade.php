@@ -97,7 +97,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($riwayat_pinjam as $item)
+                        @forelse ($peminjaman as $item)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $item->user->name }}</td>
@@ -105,7 +105,7 @@
                                 <td>{{ $item->buku->kode_buku }}</td>
                                 <td>{{ $item->tanggal_pinjam }}</td>
                                 <td>{{ $item->tanggal_wajib_kembali }}</td>
-                                <td>{{ $item->tanggal_pengembalian }}</td>
+                                <td>{{ $item->tanggal_pengembalian ?? '-' }}</td>
                             </tr>
                         @empty
                             <tr>
