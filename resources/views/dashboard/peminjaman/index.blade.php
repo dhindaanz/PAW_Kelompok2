@@ -11,7 +11,7 @@
 
 @section('content')
     @if ($isAdmin)
-        <a href="/peminjaman/create" class="btn btn-info mb-3 "><i class="fa-solid fa-plus"></i> tambah</a>
+        <a href="{{ route('peminjaman.create') }}" class="btn btn-info mb-3 "><i class="fa-solid fa-plus"></i> tambah</a>
         <a href="/cetaklaporan" class="btn btn-info mb-3 mx-2"><i class="fa-solid fa-print"></i> Cetak</a>
     @endif
 
@@ -39,7 +39,7 @@
                                 <td>{{ $item->buku->kode_buku }}</td>
                                 <td>{{ $item->tanggal_pinjam }}</td>
                                 <td>{{ $item->tanggal_wajib_kembali }}</td>
-                                <td>{{ $item->tanggal_kembali ?? 'Belum Kembali' }}</td>
+                                <td>{{ $item->tanggal_pengembalian ?? 'Belum Kembali' }}</td>
                             </tr>
                         @empty
                             <tr>

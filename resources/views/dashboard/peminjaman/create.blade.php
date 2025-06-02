@@ -7,7 +7,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('peminjaman.index') }}" method="POST">
+            <form action="{{ route('peminjaman.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="nama" class="text-primary font-weight-bold">Nama Peminjam</label>
@@ -30,10 +30,9 @@
                     @enderror
                 </div>
 
-
                 <div class="fom-group">
-                    <label for="buku" class="text-primary font-weight-bold">Buku yang akan dipinjam</label>
-                    <select name="buku_id" id="" class="form-control">
+                    <label for="buku_id" class="text-primary font-weight-bold">Buku yang akan dipinjam</label>
+                    <select name="buku_id" id="buku_id" class="form-control">
                         @forelse ($buku as $item)
                             <option value="{{ $item->id }}">{{ $item->judul }} ( {{ $item->kode_buku }} ) -
                                 {{ $item->status }}</option>
@@ -46,6 +45,15 @@
                 @error('buku_id')
                     <div class="alert alert-danger mt-3">{{ $message }}</div>
                 @enderror
+
+                <div class="form-group mt-3">
+                    <label for="durasi" class="text-primary font-weight-bold">Lama Peminjaman</label>
+                    <select name="durasi" id="durasi" class="form-control">
+                        @for ($i = 1; $i <= 7; $i++)
+                            <option value="{{ $i }}">{{ $i }} Hari</option>
+                        @endfor
+                    </select>
+                </div>
 
                 <div class="d-flex justify-content-end mt-5">
                     <a href="{{ url($referrer) }}" class="btn btn-danger">Kembali</a>

@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/peminjaman', [RiwayatPeminjamanController::class, 'index'])->name('peminjaman.index');
     Route::get('/peminjaman/create', [RiwayatPeminjamanController::class, 'create'])->name('peminjaman.create');
+    Route::post('/peminjaman', [RiwayatPeminjamanController::class, 'store'])->name('peminjaman.store');
 
     Route::middleware('is_admin')->group(function () {
         Route::get('/buku/create', [BukuController::class, 'create'])->name('buku.create');

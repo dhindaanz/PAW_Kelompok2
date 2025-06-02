@@ -7,6 +7,9 @@ use App\Models\Buku;
 use App\Models\Peminjaman;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RiwayatPeminjamanController extends Controller
 {
@@ -65,6 +68,42 @@ class RiwayatPeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'user_id' => 'required|integer|exists:users,id',
+            'buku_id' => 'required|string|max:20|exists:bukus,id',
+            'durasi' => 'required|integer|min:1|max:7',
+        ]);
+
+        $buku = Buku::findOrFail($validatedData['buku_id']);
+
+        if (!$buku->is_available) {
+            return back()->withErrors(['buku_id' => 'Buku ini tidak tersedia untuk dipinjam.']);
+        }
+
+        try {
+            DB::beginTransaction();
+            $buku->is_available = false;
+            $buku->save();
+
+            $days = (int) $validatedData['durasi'];
+            $peminjaman = Peminjaman::create([
+                'user_id' => $validatedData['user_id'],
+                'buku_id' => $validatedData['buku_id'],
+                'tanggal_pinjam' => Carbon::now()->toDateString(),
+                'tanggal_wajib_kembali' => Carbon::now()->addDays($days)->toDateString(),
+            ]);
+
+            DB::commit();
+
+            if ($peminjaman) {
+                Alert::success('Berhasil', 'Peminjaman berhasil dibuat!');
+                return redirect()->route('peminjaman.index');
+            } else {
+                Alert::error('Gagal', 'Gagal membuat peminjaman. Silakan coba lagi.');
+                return back();
+            }
+        } catch (\Throwable $th) {
+            DB::rollback();
+        }
     }
 }
