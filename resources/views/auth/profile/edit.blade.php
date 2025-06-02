@@ -16,7 +16,7 @@
             </div>
 
             @error('name')
-                <div class="alert-danger"> {{ $message }}</div>
+                <div class="alert alert-danger mx-4 my-2">{{ $message }}</div>
             @enderror
 
             <div class="form-group mx-4 my-2">
@@ -25,7 +25,7 @@
             </div>
 
             @error('nim')
-                <div class="alert-danger"> {{ $message }}</div>
+                <div class="alert alert-danger mx-4 my-2">{{ $message }}</div>
             @enderror
 
             <div class="form-group mx-4 my-2">
@@ -34,7 +34,7 @@
             </div>
 
             @error('prodi')
-                <div class="alert-danger mx-2"> {{ $message }}</div>
+                <div class="alert alert-danger mx-4 my-2">{{ $message }}</div>
             @enderror
 
             <div class="form-group mx-4 my-2">
@@ -44,7 +44,7 @@
             </div>
 
             @error('angkatan')
-                <div class="alert-danger"> {{ $message }}</div>
+                <div class="alert alert-danger mx-4 my-2">{{ $message }}</div>
             @enderror
 
             <div class="form-group mx-4 my-2">
@@ -54,19 +54,20 @@
             </div>
 
             @error('no_hp')
-                <div class="alert-danger"> {{ $message }}</div>
+                <div class="alert alert-danger mx-4 my-2">{{ $message }}</div>
             @enderror
 
             <div class="form-group mx-4 my-2">
                 <label for="foto" class="text-md text-primary font-weight-bold">Photo Profile</label>
                 <div class="custom-file">
-                    <input type="file" name="foto" id="foto" value="{{ old('foto', $user->profile->foto) }}" accept="image/*">
+                    <input type="file" name="foto" id="foto" value="{{ old('foto', $user->profile->foto) }}"
+                        accept="image/*">
                     <label class="custom-file-label" for="foto">Pilih Foto</label>
                 </div>
             </div>
 
             @error('foto')
-                <div class="alert-danger"> {{ $message }}</div>
+                <div class="alert alert-danger mx-4 my-2">{{ $message }}</div>
             @enderror
 
             <div class="button-save d-flex justify-content-end">

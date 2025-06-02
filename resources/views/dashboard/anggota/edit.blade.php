@@ -7,17 +7,17 @@
 @section('content')
     <div class="card pb-5">
         <div class="card-body">
-            <form action="{{ route('anggota.show', $anggota->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('anggota.update', $anggota->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
                 <div class="form-group mx-4 my-2">
-                    <label for="nama"class="text-primary font-weight-bold">Nama Lengkap</label>
-                    <input type="text" name="nama" class="form-control" value="{{ old('nama', $anggota->name) }}">
+                    <label for="name"class="text-primary font-weight-bold">Nama Lengkap</label>
+                    <input type="text" name="name" class="form-control" value="{{ old('name', $anggota->name) }}">
                 </div>
 
-                @error('nama')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                @error('name')
+                    <div class="alert alert-danger mx-4 my-2">{{ $message }}</div>
                 @enderror
 
                 <div class="form-group mx-4 my-2">
@@ -27,7 +27,7 @@
                 </div>
 
                 @error('nim')
-                    <div class="alert-danger"> {{ $message }}</div>
+                    <div class="alert alert-danger mx-4 my-2">{{ $message }}</div>
                 @enderror
 
                 <div class="form-group mx-4 my-2">
@@ -37,7 +37,7 @@
                 </div>
 
                 @error('prodi')
-                    <div class="alert-danger mx-2"> {{ $message }}</div>
+                    <div class="alert alert-danger mx-4 my-2">{{ $message }}</div>
                 @enderror
 
                 <div class="form-group mx-4 my-2">
@@ -47,7 +47,7 @@
                 </div>
 
                 @error('angkatan')
-                    <div class="alert-danger"> {{ $message }}</div>
+                    <div class="alert alert-danger mx-4 my-2">{{ $message }}</div>
                 @enderror
 
                 <div class="form-group mx-4 my-2">
@@ -57,7 +57,7 @@
                 </div>
 
                 @error('no_hp')
-                    <div class="alert-danger"> {{ $message }}</div>
+                    <div class="alert alert-danger mx-4 my-2">{{ $message }}</div>
                 @enderror
 
                 <div class="form-group mx-4 my-2">
@@ -70,7 +70,7 @@
                 </div>
 
                 @error('foto')
-                    <div class="alert-danger"> {{ $message }}</div>
+                    <div class="alert alert-danger mx-4 my-2">{{ $message }}</div>
                 @enderror
 
                 <div class="d-flex justify-content-end">

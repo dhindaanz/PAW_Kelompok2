@@ -55,6 +55,10 @@ class ProfileController extends Controller
         $profile->no_hp = $validatedData['no_hp'];
 
         if ($request->hasFile('foto')) {
+            if ($profile->foto && file_exists(public_path($profile->foto))) {
+                unlink(public_path($profile->foto));
+            }
+
             $file = $request->file('foto');
             $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads/foto'), $filename);
