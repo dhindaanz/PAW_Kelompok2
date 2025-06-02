@@ -30,7 +30,7 @@ class LoginController extends Controller
 
         $emailParts = explode('@', $user->email);
         $deviceName = $validatedData['device_name'] ?? $emailParts[0] . ' Device';
-        $user->currentAccessToken()->delete();
+        $user->tokens()->delete();
 
         return response()->json([
             'status' => 'success',
