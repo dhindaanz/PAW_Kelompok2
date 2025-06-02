@@ -18,7 +18,7 @@
                         <div class="col mr-2">
                             <div class="text-sm font-weight-bold text-uppercase mb-1 text-light">Jumlah Buku</div>
                             <div class="text-sm text-light h5 mb-0 font-weight-bold">{{ $buku }}</div>
-                            <div class="button mt-2"><a href="/buku" class="text-light">Lihat</a></div>
+                            <div class="button mt-2"><a href="{{ route('buku.index') }}" class="text-light">Lihat</a></div>
                         </div>
                         <div class="col-auto">
                             <i class="fa-solid fa-book fa-3x text-light"></i>
@@ -35,7 +35,7 @@
                         <div class="col mr-2">
                             <div class="text-sm text-light font-weight-bold text-uppercase mb-1">Kategori</div>
                             <div class="text-sm text-light h5 mb-0 font-weight-bold">{{ $kategori }}</div>
-                            <div class="button mt-2"><a href="/kategori" class="text-light">Lihat</a></div>
+                            <div class="button mt-2"><a href="{{ route('kategori.index') }}" class="text-light">Lihat</a></div>
                         </div>
                         <div class="col-auto">
                             <i class="fa-solid fa-bookmark fa-3x text-light"></i>
@@ -69,7 +69,7 @@
                         <div class="col mr-2">
                             <div class="text-sm text-light font-weight-bold text-uppercase mb-1" style="font-size:.8`rem;">Riwayat Peminjamam</div>
                             <div class="h5 mb-0 mr-3 font-weight-bold text-light">{{ $jumlahPeminjaman }}</div>
-                            <div class="button mt-2"><a href="#" class="text-light">Lihat</a></div>
+                            <div class="button mt-2"><a href="{{ route('peminjaman.index') }}" class="text-light">Lihat</a></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user-tie fa-3x text-light"></i>
@@ -105,7 +105,7 @@
                                 <td>{{ $item->buku->kode_buku }}</td>
                                 <td>{{ $item->tanggal_pinjam }}</td>
                                 <td>{{ $item->tanggal_wajib_kembali }}</td>
-                                <td>{{ $item->tanggal_pengembalian ?? '-' }}</td>
+                                <td>{{ $item->tanggal_pengembalian ?? 'Belum Kembali' }}</td>
                             </tr>
                         @empty
                             <tr>
