@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('judul')
-    <h1 class="text-primary">Detail Kategori</h1>
+    <h1 class="text-primary">Detail Anggota</h1>
 @endsection
 
 @push('styles')

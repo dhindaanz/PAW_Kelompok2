@@ -41,7 +41,7 @@
 
                                     @if ($isAdmin)
                                         <button class="btn btn-warning">
-                                            <a href="{{ route('anggota.index', $item->id) }}"
+                                            <a href="{{ route('anggota.edit', $item->id) }}"
                                                 style="text-decoration: none;color:white">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>

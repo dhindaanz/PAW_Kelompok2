@@ -35,7 +35,9 @@ class AnggotaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $anggota = User::with('profile')->findOrFail($id);
+
+        return view('dashboard.anggota.edit', compact('anggota'));
     }
 
     /**

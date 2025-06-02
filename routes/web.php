@@ -60,5 +60,6 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/anggota', [AnggotaController::class, 'index'])->name('anggota.index');
         Route::get('/anggota/{id}/detail', [AnggotaController::class, 'show'])->name('anggota.show');
+        Route::get('/anggota/{id}/edit', [AnggotaController::class, 'edit'])->name('anggota.edit');
     });
 });
