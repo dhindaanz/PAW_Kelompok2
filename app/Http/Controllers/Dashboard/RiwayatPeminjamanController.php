@@ -82,7 +82,7 @@ class RiwayatPeminjamanController extends Controller
 
         $existingPeminjaman = Peminjaman::where('user_id', $validatedData['user_id'])
             ->where('buku_id', $validatedData['buku_id'])
-            ->whereNull('tanggal_kembali')
+            ->whereNull('tanggal_pengembalian')
             ->first();
 
         if ($existingPeminjaman) {
@@ -90,7 +90,7 @@ class RiwayatPeminjamanController extends Controller
         }
 
         $currentBorrowedCount = Peminjaman::where('user_id', $validatedData['user_id'])
-            ->whereNull('tanggal_kembali')
+            ->whereNull('tanggal_pengembalian')
             ->count();
 
         if ($currentBorrowedCount >= 3) {
